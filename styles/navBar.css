@@ -1,0 +1,32 @@
+/* TODO: Get proper heights and set icons and text up properly */
+
+
+nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+/* TODO: Set proper height */
+#navGLLogo{
+  height: 15vh;
+  width: auto;
+}
+
+/* Remove Hyperlink Underline */
+a{
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navIconText{
+  color:orange
+}
+
+.navSplitR{
+  float:right;
+  display: flex;
+}

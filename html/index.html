@@ -1,0 +1,26 @@
+<!-- use comments like this before each different section of the page for others to easily find -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MyLoft App</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/index.js"></script>
+
+    <!--START of code to pull things from other files-->
+    <script
+      type="text/javascript"
+      src="http://code.jquery.com/jquery-latest.min.js"
+    ></script>
+    <script>
+      $(function () {
+        $("#navBar").load("navBar.html");
+      });
+    </script>
+    <!-- END of code to pull things from other files -->
+  </head>
+  <body>
+    <section id="navBar"></section>
+  </body>
+</html>
