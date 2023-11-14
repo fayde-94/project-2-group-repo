@@ -54,7 +54,6 @@ body {
 /* TODO: Set proper height */
 #navGLLogo {
   height: auto;
-
 }
 
 /* Remove Hyperlink Underline */
@@ -77,10 +76,10 @@ img {
   height: 70px;
 }
 
-.langIcon {
-  height: 50px;
-  padding-top: 12px;
-  padding-right: 8px;
+.langIcon,
+.profileIcon {
+  height: 6vh;
+  padding-inline: 5px;
 }
 
 #navGLLogo {
@@ -96,6 +95,6 @@ img {
   padding-top: 2vh;
 }
 
-.profileIcon {
-  height: 60px;
+#gardenLoftLogo img {
+  height: 8vh;
 }
