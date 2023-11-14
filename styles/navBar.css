@@ -1,15 +1,63 @@
 /* TODO: Get proper heights and set icons and text up properly */
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
 
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  background: rgb(238, 174, 202);
+  background: radial-gradient(
+    circle,
+    rgb(255, 255, 255) 0%,
+    rgb(248, 230, 215) 100%
+  );
+}
 
+<<<<<<< HEAD
 /* Navbar */
 nav{
+=======
+#navBar {
+  flex: 1;
+  margin-top: 3vh;
+  padding: 5px 20px;
+  height: 10vh;
+>>>>>>> c0a40b908ef067f9b3a41a8fe99671febcac6746
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  overflow: hidden;
+  align-items: center;
+}
+
+.nav-item:last-child {
+  margin-left: auto;
+  padding-right: 5%;
+}
+
+.nav-item:first-child {
+  margin-right: auto;
+  padding-left: 5%;
+}
+
+.mids {
+  height: 100%;
+  display: flex;
+  transition: scale;
+}
+
+.mids a:hover {
+  transform: scale(125%);
+  transition-duration: 0.3s;
+}
+
+.mids img {
+  height: 50px;
 }
 
 /* TODO: Set proper height */
+<<<<<<< HEAD
 /* Logo */
 #navGLLogo{
   height: 15vh;
@@ -19,16 +67,60 @@ nav{
 /* Each item in Navbar */
 a{
   text-decoration: none;/* Remove Hyperlink Underline */
+=======
+#navGLLogo {
+  height: auto;
+
+}
+
+/* Remove Hyperlink Underline */
+a {
+  text-decoration: none;
+>>>>>>> c0a40b908ef067f9b3a41a8fe99671febcac6746
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.navIconText{
-  color:orange
+.navIconText {
+  color: orange;
 }
+<<<<<<< HEAD
 /* Nav Split on right */
 .navSplitR{
   float:right;
   display: flex;
 }
+=======
+
+.navSplitR {
+  display: inherit;
+}
+
+img {
+  height: 70px;
+}
+
+.langIcon {
+  height: 50px;
+  padding-top: 12px;
+  padding-right: 8px;
+}
+
+#navGLLogo {
+  width: 120px;
+}
+
+.navLinkButton {
+  padding-left: 3vh;
+  padding-right: 3vh;
+}
+
+#gardenLoftLogo {
+  padding-top: 2vh;
+}
+
+.profileIcon {
+  height: 60px;
+}
+>>>>>>> c0a40b908ef067f9b3a41a8fe99671febcac6746
