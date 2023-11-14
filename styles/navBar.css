@@ -16,16 +16,11 @@ body {
   );
 }
 
-<<<<<<< HEAD
-/* Navbar */
-nav{
-=======
 #navBar {
   flex: 1;
   margin-top: 3vh;
   padding: 5px 20px;
   height: 10vh;
->>>>>>> c0a40b908ef067f9b3a41a8fe99671febcac6746
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -57,17 +52,6 @@ nav{
 }
 
 /* TODO: Set proper height */
-<<<<<<< HEAD
-/* Logo */
-#navGLLogo{
-  height: 15vh;
-  width: auto;
-}
-
-/* Each item in Navbar */
-a{
-  text-decoration: none;/* Remove Hyperlink Underline */
-=======
 #navGLLogo {
   height: auto;
 
@@ -76,7 +60,6 @@ a{
 /* Remove Hyperlink Underline */
 a {
   text-decoration: none;
->>>>>>> c0a40b908ef067f9b3a41a8fe99671febcac6746
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -85,13 +68,6 @@ a {
 .navIconText {
   color: orange;
 }
-<<<<<<< HEAD
-/* Nav Split on right */
-.navSplitR{
-  float:right;
-  display: flex;
-}
-=======
 
 .navSplitR {
   display: inherit;
@@ -123,4 +99,3 @@ img {
 .profileIcon {
   height: 60px;
 }
->>>>>>> c0a40b908ef067f9b3a41a8fe99671febcac6746
