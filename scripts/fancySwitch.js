@@ -68,9 +68,10 @@ function turnOffSwitch() {
 }
 
 function flickSwitch(buttonID) {
-  if (buttonID.style.display == true) {
+  const button = document.getElementById(buttonID);
+  if (button.checked == true) {
     turnOnSwitch();
-  } else if (buttonID.style.display == false) {
+  } else if (button.checked == false) {
     turnOffSwitch();
   }
 }
