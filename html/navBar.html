@@ -16,15 +16,14 @@
     <nav id="navBar">
       <!-- Smart Loft Logo -->
       <div class="navSplitL">
-        <a role="button" id="gardenLoftLogo" name="gardenLoftLogo" ;>
+        <a role="button" id="smartLoftLogo" name="smartLoftLogo" ;>
           <img
             src="../images/SmartLoftLogo.svg"
-            alt="Garden Loft Logo"
-            id="navGLLogo"
-            name="navGLLogo"
+            alt="Smart Loft Logo"
+            id="navSLLogo"
+            name="navSLLogo"
             class="navIcon"
           />
-          <p id="smartLoftLogoText" class="navIconText">Smart Loft</p>
         </a>
       </div>
       <!-- Health Button -->
@@ -106,17 +105,33 @@
       </div>
 
       <div class="navSplitR">
-        <!-- Language Button -->
-
+        <!-- Alert(s) button -->
         <a
-          class="button"
+          class="navLinkButton"
+          role="button"
+          id="navAlert"
+          name="navAlert"
+          onclick="console.log('This does nothing.')"
+        >
+          <img
+            class="navIcon"
+            id="navAlertIcon"
+            src="../images/navAlertIcon.svg"
+            alt="Alert Icon"
+          />
+        </a>
+        <!-- Language Button -->
+        <a
+          class="navLinkButton"
           role="button"
           id="navLanguage"
           name="navLanguage"
           href="./language.html"
         >
           <img
-            class="langIcon"
+            class="navIcon"
+            id="navLanguageIcon"
+            name="navLanguageIcon"
             src="../images/navLanguages.svg"
             alt="To Languages"
           />
@@ -130,10 +145,12 @@
           name="navProfile"
           href="./profile.html"
         >
+          <p class="navIconText" id="navProfileText">Profile</p>
           <img
             src="../images/navProfileIcon(Solo).svg"
             alt="To Profile"
-            class="profileIcon"
+            name="navProfileIcon"
+            id="navProfileIcon"
           />
         </a>
       </div>
