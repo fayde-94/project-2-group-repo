@@ -7,7 +7,7 @@
   margin: 0;
 }
 
-body {
+/* body {
   font-family: "Poppins", sans-serif;
   font-size: 18px;
   line-height: 1.5;
@@ -17,13 +17,12 @@ body {
     rgb(255, 255, 255) 0%,
     rgb(248, 230, 215) 100%
   );
-}
+} */
 
 #navBar {
   flex: 1;
-  margin-top: 3vh;
-  padding: 5px 20px;
-  height: 10vh;
+  margin-top: 2vh;
+  height: 20vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -68,19 +67,28 @@ a {
 }
 
 .navIconText {
-  color: orange;
+  color: var(--gardenLoftGrey);
 }
 
 .navSplitR {
   display: inherit;
 }
 
-img {
-  height: 70px;
+#navProfile{
+  outline-style: solid ;
+  border-radius: 2vh;
+  flex-direction: row;
 }
 
-.langIcon,
-.profileIcon {
+#navProfileText{
+  padding-left: 3vw;
+}
+#navProfileIcon{
+  padding-right: 3vw;
+}
+
+#navLanguageIcon,
+#navProfileIcon {
   height: 6vh;
   padding-inline: 5px;
 }
@@ -94,10 +102,10 @@ img {
   padding-right: 3vh;
 }
 
-#gardenLoftLogo {
+#smartLoftLogo {
   padding-top: 2vh;
 }
 
-#gardenLoftLogo img {
+#smartLoftLogo img {
   height: 8vh;
 }
