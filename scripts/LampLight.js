@@ -1,4 +1,4 @@
-const socket = new WebSocket("ws://homeassistant.local:8123/api/websocket");
+const socket = new WebSocket("wss://homeassistant.local:8123/api/websocket");
 var idNumber = 1;
 
 socket.onopen = (event) => {
@@ -9,13 +9,7 @@ socket.onopen = (event) => {
     JSON.stringify({
       type: "auth",
       access_token:
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhMmM3MWI4YTdjZjU0NTdkOWVmZmVjMTI3ZTcyNmM0YyIsImlhdCI6MTcwMDI0MDU3NiwiZXhwIjoyMDE1NjAwNTc2fQ.qU9qQdmwScJHjUrVa9eSNRUUvaoMPUFfjzteBh-YYLw"
-  );
-
-  // Subscribe to events (optional)
-  socket.send(
-    JSON.stringify({
-      type: "subscribe_events",
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhMmM3MWI4YTdjZjU0NTdkOWVmZmVjMTI3ZTcyNmM0YyIsImlhdCI6MTcwMDI0MDU3NiwiZXhwIjoyMDE1NjAwNTc2fQ.qU9qQdmwScJHjUrVa9eSNRUUvaoMPUFfjzteBh-YYLw", // Replace with your Home Assistant access token
     })
   );
 };
@@ -36,41 +30,42 @@ function sendMessage(message) {
   socket.send(message);
 }
 
-function turnOnSwitch() {
-  // Example: Send a command to turn on Switch
+function turnOnLight() {
   const message = JSON.stringify({
     id: idNumber,
     type: "call_service",
-    domain: "switch",
+    domain: "light",
     service: "turn_on",
     service_data: {
-      entity_id: "switch.thing2", // Replace with your switch entity ID
+      entity_id: "light.switch.thing2", // Replace with your light entity ID in Home Assistant
     },
   });
   idNumber++;
   sendMessage(message);
 }
 
-function turnOffSwitch() {
-  // Example: Send a command to turn off Switch
+function turnOffLight() {
   const message = JSON.stringify({
     id: idNumber,
     type: "call_service",
-    domain: "switch",
+    domain: "light",
     service: "turn_off",
     service_data: {
-      entity_id: "switch.thing2", // Replace with your switch entity ID
+      entity_id: "light.switch.thing2", // Replace with your light entity ID in Home Assistant
     },
   });
   idNumber++;
   sendMessage(message);
 }
 
-function flickSwitch(buttonID) {
-  const button = document.getElementById(buttonID);
-  if (button.checked == true) {
-    turnOnSwitch();
-  } else if (button.checked == false) {
-    turnOffSwitch();
+function toggleLightSwitch() {
+  const lightSwitch = document.getElementById("Light");
+  if (lightSwitch.checked) {
+    turnOnLight();
+  } else {
+    turnOffLight();
   }
 }
+
+// Attach event listener to toggle switch change
+document.getElementById("Light").addEventListener("change", toggleLightSwitch);
