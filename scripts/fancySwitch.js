@@ -1,3 +1,5 @@
+// API Documentation on the link below
+// https://developers.home-assistant.io/docs/api/websocket
 const socket = new WebSocket("ws://homeassistant.local:8123/api/websocket");
 var idNumber = 1;
 
@@ -17,6 +19,7 @@ socket.onopen = (event) => {
   socket.send(
     JSON.stringify({
       type: "subscribe_events",
+      event_type: "state_changed",
     })
   );
 };
@@ -24,8 +27,7 @@ socket.onopen = (event) => {
 socket.onmessage = (event) => {
   const data = JSON.parse(event.data);
   console.log("Received message:", data);
-
-  // Process received messages if needed
+  checkLightStatus(event);
 };
 
 socket.onclose = (event) => {
@@ -74,4 +76,9 @@ function flickSwitch(buttonID) {
   } else if (button.checked == false) {
     turnOffSwitch();
   }
+}
+
+function checkLightStatus(event) {
+  const data = JSON.parse(event.data);
+  console.log("checklight" + data);
 }

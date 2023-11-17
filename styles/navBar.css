@@ -19,52 +19,63 @@
   );
 } */
 
+/* Entire NavBar */
 #navBar {
   flex: 1;
-  margin-top: 2vh;
   height: 20vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-color: var(--tempColorCheck1);
+  border-style: solid;
+  align-content: center;
 }
 
-
-
-.nav-item:last-child {
-  margin-left: auto;
-  padding-right: 5%;
-}
-
+/* Logo Section */
 .nav-item:first-child {
   margin-right: auto;
   padding-left: 5%;
 }
 
-.mids {
+
+/* Split Items on right */
+.nav-item:last-child {
+  margin-left: auto;
+  padding-right: 5%;
+}
+
+/* Center section; page navigation */
+#mids {
   height: 100%;
   display: flex;
   transition: scale;
+  align-items: center;
 }
 
-.mids a:hover {
+#mids a:hover {
   transform: scale(125%);
   transition-duration: 0.3s;
 }
 
-.mids img {
-  height: 80%;
+#mids img {
+  height: 10%;
 }
 
-/* TODO: Set proper height */
-#navGLLogo {
-  height: auto;
+
+/* Logo Stuff */
+#smartLoftLogo {
+  padding-top: 2vh;
+}
+
+#smartLoftLogo img {
+  height: 14vh;
 }
 
 
 
 
 /* Remove Hyperlink Underline */
-a {
+.navLinkButton > a, #mids > a, #navSplitR > a {
   text-decoration: none;
   display: flex;
   flex-direction: column;
@@ -107,10 +118,3 @@ a {
   padding-right: 3vh;
 }
 
-#smartLoftLogo {
-  padding-top: 2vh;
-}
-
-#smartLoftLogo img {
-  height: 8vh;
-}
