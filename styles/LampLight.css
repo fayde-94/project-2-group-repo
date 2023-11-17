@@ -3,9 +3,9 @@
     margin: 0;
 }
 .container{
-    width: 100%;
+    width: 90%;
     height: 100vh;
-    background-color: #f1eaff;
+    background-color: #4C4C4E ;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,7 +30,7 @@
     transition: 0.2s;
 }
 input:checked + .button{
-    background-color: yellow;
+    background-color: #FEC341;
 }
 input:checked + .button::before{
     transform: translateX(100px);
