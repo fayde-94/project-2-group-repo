@@ -52,13 +52,16 @@
 }
 
 .mids img {
-  height: 50px;
+  height: 80%;
 }
 
 /* TODO: Set proper height */
 #navGLLogo {
   height: auto;
 }
+
+
+
 
 /* Remove Hyperlink Underline */
 a {
