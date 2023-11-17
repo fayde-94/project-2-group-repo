@@ -1,5 +1,6 @@
 // API Documentation on the link below
 // https://developers.home-assistant.io/docs/api/websocket
+// demoMove1 key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhOGNiMTNjZTJiN2Y0ZDFjYjk0MWM1YzFjYTRmN2YyMSIsImlhdCI6MTcwMDI1MDQxNywiZXhwIjoyMDE1NjEwNDE3fQ.xc0OTLmb-UVyHwM-ts1HP36neodPU5t4UzSy0i8OJsQ
 const socket = new WebSocket("ws://homeassistant.local:8123/api/websocket");
 var idNumber = 1;
 
@@ -11,7 +12,7 @@ socket.onopen = (event) => {
     JSON.stringify({
       type: "auth",
       access_token:
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhYmE3NzA5MzBlYTY0MTE1YjgwOGQ5NDhjMzYzYmQwMyIsImlhdCI6MTcwMDAwMjU3NCwiZXhwIjoyMDE1MzYyNTc0fQ.EK4HpXAjU9SU65wjvX52n_ZSkNejZ43wwYokgH8BJJU", // This is the group's access token
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhOGNiMTNjZTJiN2Y0ZDFjYjk0MWM1YzFjYTRmN2YyMSIsImlhdCI6MTcwMDI1MDQxNywiZXhwIjoyMDE1NjEwNDE3fQ.xc0OTLmb-UVyHwM-ts1HP36neodPU5t4UzSy0i8OJsQ", // This is the group's access token
     })
   );
 
