@@ -155,6 +155,7 @@ socket.onclose = (event) => {
 function sendMessage(message) {
   console.log("POST: ", message); //debug
   socket.send(message);
+  idNumber++;
 }
 
 //Get request for states
@@ -164,7 +165,6 @@ function getStates() {
     type: "get_states",
   });
   statID = idNumber;
-  idNumber++;
   debug(message); //debug
   sendMessage(message);
 }
@@ -203,7 +203,6 @@ function triggerLightSwitch(buttonID) {
         entity_id: deviceName,
       },
     });
-    idNumber++;
     sendMessage(message);
     return deviceStatus(deviceName);
   } else {
@@ -377,6 +376,36 @@ function readTemperatureSensor(data1) {
   document.getElementById(
     "temperatureDiv"
   ).innerHTML = `Temperature is ${temp}*c`;
+  //CURRENTLY USING THING3 AS A FAN
+  let serviceFan = "";
+  let serviceHeat = "";
+  if (temp > 25) {
+    serviceFan = "turn_on";
+    serviceHeat = "turn_off";
+  } else if (temp < 20) {
+    serviceFan = "turn_off";
+    serviceHeat = "turn_on";
+  }
+  const message = JSON.stringify({
+    id: idNumber,
+    type: "call_service",
+    domain: "switch",
+    service: serviceHeat,
+    service_data: {
+      entity_id: floorLights,
+    },
+  });
+  const message1 = JSON.stringify({
+    id: idNumber,
+    type: "call_service",
+    domain: "switch",
+    service: serviceFan,
+    service_data: {
+      entity_id: accentLights,
+    },
+  });
+  // sendMessage(message);
+  // sendMessage(message1);
 }
 
 //Reads results according to statDevice and updates statStatusOfDevice
