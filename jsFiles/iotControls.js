@@ -55,7 +55,7 @@ socket.onopen = async (event) => {
 socket.onmessage = (event) => {
   //... convert the incoming JSON into a usable form and then...
   const data1 = JSON.parse(event.data);
-  console.log("1)Type= ", data1.type); //debug
+  debug("1)Type= ", data1.type); //debug
   try {
     //...  check if it is an "event" type message...
     if (data1.type == "event") {
@@ -63,7 +63,7 @@ socket.onmessage = (event) => {
       if (data1.event.event_type == "state_changed") {
         // ... of a device we are familiar with...
         const deviceID = data1.event.data.entity_id;
-        console.log("2)EntityID: ", deviceID); //debug
+        debug("2)EntityID: ", deviceID); //debug
         //... then we will act accordingly.
         switch (deviceID) {
           case overheadLights:
@@ -86,12 +86,12 @@ socket.onmessage = (event) => {
             readDoorbell(data1);
             break;
           case "sun.sun":
-            console.log("3)Sun Data");
+            debug("3)Sun Data"); //debug
             break;
           default:
             //... unless we actually aren't familiar with it.
-            console.log("3)Unlisted ID: ", deviceID);
-            console.log("3)Payload: ", data1);
+            debug("3)Unlisted ID: ", deviceID); //debug
+            debug("3)Payload: ", data1); //debug
         }
       } else {
         readOtherDataType(data1);
@@ -101,9 +101,9 @@ socket.onmessage = (event) => {
       //If it is a requested state result
       if (data1.id == statID) {
         readResults(data1);
-        console.log("2)Results seeking: ", statDevice);
+        debug("2)Results seeking: ", statDevice); //debug
       } else {
-        console.log("2)Results: ", data1);
+        debug("2)Results: ", data1); //debug
       }
     }
   } catch (error) {
@@ -143,7 +143,7 @@ function getStates() {
   });
   statID = idNumber;
   idNumber++;
-  console.log(message);
+  debug(message); //debug
   sendMessage(message);
 }
 
@@ -155,7 +155,7 @@ function getStatus(deviceID) {
     //Repeat this until status of device has been read
     if (statFlag) {
       clearInterval(int);
-      console.log("###STAT:", statStatusOfDevice); //DEbug
+      debug("###STAT:", statStatusOfDevice); //DEbug
       statFlag = false;
       return statStatusOfDevice;
     }
@@ -185,9 +185,9 @@ function triggerLightSwitch(buttonID) {
     sendMessage(message);
     return getStatus(deviceName);
   } else {
-    console.log(
+    debug(
       "InteractionTemporarilyDisabled^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
-    );
+    ); //debug
     return "NOPE";
   }
 }
@@ -261,7 +261,7 @@ function readLight(data1, deviceID) {
   const newState = data1.event.data.new_state.state;
   const obj = checkWhichLight(deviceID);
   const elementID = obj.elem;
-  console.log("Light: ", deviceID, "; Status: ", newState);
+  debug("Light: ", deviceID, "; Status: ", newState); //debug
   if (newState == "on") {
     elementID.innerHTML = `<img src="../images/lightOn.png">
      <p>${obj.name}</p>
@@ -296,18 +296,18 @@ function readLuminSensor(data1) {
 
 //How we deal with reading the motion sensor detecting motion
 function readMotionSensor(data1) {
-  //REPLACE WITH ALL APPROPRIATE STUFF
-  const mLeft = document.getElementById("fancyTest-MotionLeft"); //CHANGE
-  const mEnter = document.getElementById("fancyTest-MotionEnter"); //CHANGE
-  const mPresence = document.getElementById("fancyTest-MotionPresence"); //CHANGE
+  // //REPLACE WITH ALL APPROPRIATE STUFF
+  // const mLeft = document.getElementById("fancyTest-MotionLeft"); //CHANGE
+  // const mEnter = document.getElementById("fancyTest-MotionEnter"); //CHANGE
+  // const mPresence = document.getElementById("fancyTest-MotionPresence"); //CHANGE
   const newState = data1.event.data.new_state.state;
-  console.log("Motion: ", data1); //DEBUG
+  debug("Motion: ", data1); //DEBUG
   if (newState == "on") {
-    mPresence.style.color = "green"; //CHANGE
-    mLeft.style.color = "red"; //CHANGE
+    // mPresence.style.color = "green"; //CHANGE
+    // mLeft.style.color = "red"; //CHANGE
   } else if (newState == "off") {
-    mPresence.style.color = "red"; //CHANGE
-    mLeft.style.color = "green"; //CHANGE
+    // mPresence.style.color = "red"; //CHANGE
+    // mLeft.style.color = "green"; //CHANGE
   } else {
     console.log("Error: Unknown motion detector state detected: ", newState);
   }
@@ -318,29 +318,30 @@ function readOtherDataType(data1) {
   const eventType = data1.event.event_type;
   switch (eventType) {
     case "call_service":
-      console.log("3)Event Type: call_service");
+      debug("3)Event Type: call_service"); //debug
       break;
     case "config_entry_discovered":
-      console.log("3)Event Type: config_entry_discovered");
+      debug("3)Event Type: config_entry_discovered"); //debug
       break;
     case "recorder_5min_statistics_generated":
-      console.log("3)Event Type: recorder_5min_statistics_generated");
+      debug("3)Event Type: recorder_5min_statistics_generated"); //debug
       break;
     default:
-      console.log("3)Unlisted event type: ", eventType);
+      debug("3)Unlisted event type: ", eventType); //debug
       break;
   }
 
-  console.log("3.5)Payload: ", data1);
+  debug("3.5)Payload: ", data1); //debug
 }
 
 //How we deal with readings from the weight sensor; it detects and stores the value in KG
 function readWeightSensor(data1) {
   //REPLACE ALL ITEMS IN THIS AREA WITH APPROPRIATE FUNCTIONS
-  const weightText = document.getElementById("fancyTestWeight"); //CHANGE
+  // const weightText = document.getElementById("fancyTestWeight"); //CHANGE
   const givenWeightkgs = data1.event.data.new_state.state;
   const givenWeightlbs = givenWeightkgs * 2.2;
-  weightText.innerHTML = `Weight = ${givenWeightkgs}kgs or ${givenWeightlbs}lbs`; //CHANGE
+  debug(`Weight = ${givenWeightkgs}kgs or ${givenWeightlbs}lbs`); //debug
+  // weightText.innerHTML = `Weight = ${givenWeightkgs}kgs or ${givenWeightlbs}lbs`; //CHANGE
 }
 
 //Reads results according to statDevice and updates statStatusOfDevice
@@ -353,7 +354,7 @@ function readResults(data1) {
       statStatusOfDevice = information[i].state;
       statFlag = true;
       setTimeout(enableInteractionFlag(), 1000);
-      console.log("INREAD:", statStatusOfDevice); //DEBUG
+      debug("INREAD:", statStatusOfDevice); //DEBUG
       break;
     }
     i++;
@@ -364,4 +365,15 @@ function enableInteractionFlag() {
   interactFlag = true;
 }
 
-console.log("IoT controls loaded"); //debug
+//Debug Code here; disable by disabling console.log
+function debug(msg0, msg1, msg2, msg3, msg4, msg5) {
+  if (msg0 == undefined) msg0 = "";
+  if (msg1 == undefined) msg1 = "";
+  if (msg2 == undefined) msg2 = "";
+  if (msg3 == undefined) msg3 = "";
+  if (msg4 == undefined) msg4 = "";
+  if (msg5 == undefined) msg5 = "";
+  console.log(msg0, msg1, msg2, msg3, msg4, msg5);
+}
+
+debug("IoT controls loaded"); //debug
