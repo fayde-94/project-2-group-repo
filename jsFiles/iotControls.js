@@ -7,6 +7,7 @@ const accessToken =
 let idNumber = 1; //Initial ID number
 let interactFlag = true; //Interact Flag to prevent overwrites
 let isFinallyConnected = false; //Prevent requesting of read states before connection established
+let debugFlag = true; //Debug Flag
 
 //Global variables to check the status of devices
 let statDevice = ""; //Global Variable to seek device's information
@@ -25,7 +26,22 @@ const washroomLights = "tempFakeWash"; //Name of incoming new switch light 4; li
 const motionSensor = "binary_sensor.presence_sensor_fp2_1708_presence_sensor_1"; //Name of Motion Sensor
 const luminSensor = "sensor.presence_sensor_fp2_1708_light_sensor_light_level"; //Name of Light sensor
 const weightSensor = "sensor.smart_scale_c1_real_time_weight"; //Name of Weight sensor
-
+const humiditySensor = "sensor.temperature_sensor_humidity_sensor"; //Name of Humidity Sensor
+const temperatureSensor = "sensor.temperature_sensor"; //Name of temperature sensor
+const allDeviceIDs = [
+  doorBell,
+  doorBellMotion,
+  overheadLights,
+  floorLights,
+  accentLights,
+  handrailLights,
+  washroomLights,
+  motionSensor,
+  luminSensor,
+  weightSensor,
+  humiditySensor,
+  temperatureSensor,
+];
 // START OF SOCKET ACTIONS
 // ********************************************************************************************************** //
 // Upon starting up a connection we want to...
@@ -84,6 +100,12 @@ socket.onmessage = (event) => {
             break;
           case doorBell:
             readDoorbell(data1);
+            break;
+          case humiditySensor:
+            readHumiditySensor(data1);
+            break;
+          case temperatureSensor:
+            readTemperatureSensor(data1);
             break;
           case "sun.sun":
             debug("3)Sun Data"); //debug
@@ -148,7 +170,7 @@ function getStates() {
 }
 
 //Grab status
-function getStatus(deviceID) {
+function deviceStatus(deviceID) {
   statDevice = deviceID; //set global variable of device I am seeking
   getStates(); //Request data from Home Assistant
   let int = setInterval(() => {
@@ -183,7 +205,7 @@ function triggerLightSwitch(buttonID) {
     });
     idNumber++;
     sendMessage(message);
-    return getStatus(deviceName);
+    return deviceStatus(deviceName);
   } else {
     debug(
       "InteractionTemporarilyDisabled^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
@@ -278,16 +300,13 @@ function readLight(data1, deviceID) {
 //How we deal with reading the luminosity levels on the motion sensor
 function readLuminSensor(data1) {
   //REPLACE ALL OF THIS WITH APPROPRIATE THINGS
-  const fLumUp = document.getElementById("fancyTest-LightUp"); //CHANGE
-  const fLumDown = document.getElementById("fancyTest-LightDown"); //CHANGE
   const newState = data1.event.data.new_state.state;
   const oldState = data1.event.data.old_state.state;
+  document.getElementById(
+    "luminosityDiv"
+  ).innerHTML = `Luminosity Level was ${oldState}lux, but is now ${newState}lux.`;
   if (newState > oldState) {
-    fLumUp.style.color = "green"; //CHANGE
-    fLumDown.style.color = "red"; //CHANGE
   } else if (newState <= oldState) {
-    fLumUp.style.color = "red"; //CHANGE
-    fLumDown.style.color = "green"; //CHANGE
   } else {
     console.log("Error: Luminosity level transition unknown");
     console.log("New state= ", newState, "; Old state = ", oldState);
@@ -296,18 +315,15 @@ function readLuminSensor(data1) {
 
 //How we deal with reading the motion sensor detecting motion
 function readMotionSensor(data1) {
-  // //REPLACE WITH ALL APPROPRIATE STUFF
-  // const mLeft = document.getElementById("fancyTest-MotionLeft"); //CHANGE
-  // const mEnter = document.getElementById("fancyTest-MotionEnter"); //CHANGE
-  // const mPresence = document.getElementById("fancyTest-MotionPresence"); //CHANGE
   const newState = data1.event.data.new_state.state;
-  debug("Motion: ", data1); //DEBUG
+  const motionDiv = document.getElementById("motionDiv");
+  // debug("Motion: ", data1); //DEBUG
   if (newState == "on") {
-    // mPresence.style.color = "green"; //CHANGE
-    // mLeft.style.color = "red"; //CHANGE
+    motionDiv.innerHTML = `Presence Detected at ${data1.event.time_fired}`;
+    debug(`Presence Detected at ${data1.event.time_fired}`);
   } else if (newState == "off") {
-    // mPresence.style.color = "red"; //CHANGE
-    // mLeft.style.color = "green"; //CHANGE
+    motionDiv.innerHTML = `Presence Left at ${data1.event.time_fired}`;
+    debug(`Presence Detected at ${data1.event.time_fired}`);
   } else {
     console.log("Error: Unknown motion detector state detected: ", newState);
   }
@@ -341,7 +357,26 @@ function readWeightSensor(data1) {
   const givenWeightkgs = data1.event.data.new_state.state;
   const givenWeightlbs = givenWeightkgs * 2.2;
   debug(`Weight = ${givenWeightkgs}kgs or ${givenWeightlbs}lbs`); //debug
+  document.getElementById(
+    "weightDiv"
+  ).innerHTML = `Weight = ${givenWeightkgs}kgs or ${givenWeightlbs}lbs`;
   // weightText.innerHTML = `Weight = ${givenWeightkgs}kgs or ${givenWeightlbs}lbs`; //CHANGE
+}
+
+//Read Humidity Sensor
+function readHumiditySensor(data1) {
+  const humidity = data1.event.data.new_state.state;
+  debug("Humidity level is: ", humidity, "%");
+  document.getElementById("humidityDiv").innerHTML = `Humidity is ${humidity}%`;
+}
+
+//Read Temperature Sensor
+function readTemperatureSensor(data1) {
+  const temp = data1.event.data.new_state.state;
+  debug("Temperature is: ", temp, "*c");
+  document.getElementById(
+    "temperatureDiv"
+  ).innerHTML = `Temperature is ${temp}*c`;
 }
 
 //Reads results according to statDevice and updates statStatusOfDevice
@@ -373,7 +408,22 @@ function debug(msg0, msg1, msg2, msg3, msg4, msg5) {
   if (msg3 == undefined) msg3 = "";
   if (msg4 == undefined) msg4 = "";
   if (msg5 == undefined) msg5 = "";
-  console.log(msg0, msg1, msg2, msg3, msg4, msg5);
+  if (debugFlag) {
+    console.log(msg0, msg1, msg2, msg3, msg4, msg5);
+  }
+}
+
+//NOTE: NON-FUNCTIONAL
+function reloadAll() {
+  debugFlag = false;
+  let stopFlag = false;
+  for (let i = 0; i < allDeviceIDs.length; i++) {
+    if (!stopFlag) {
+      console.log("Reloading1");
+      stopFlag = true;
+      deviceStatus(allDeviceIDs[i]);
+    }
+  }
 }
 
 debug("IoT controls loaded"); //debug
