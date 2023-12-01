@@ -1,0 +1,26 @@
+.mySlides {display: none;}
+ .mySlides img {vertical-align: middle; width: 100vw;
+    height: 500px;  object-fit: contain;}
+
+/* Slideshow container */
+.gallarySlideShow {
+  width: 1500px;
+  height: 500px;
+  display: flex;
+  
+}
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}

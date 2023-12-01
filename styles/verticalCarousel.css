@@ -1,5 +1,5 @@
 .VerticalCardDiv{
-    width: 1200px;
+    width: 1400px;
     height: 150px;
     display: flex;
     align-items: center;
@@ -12,7 +12,7 @@
     /* background: #FFF; */
 
     color: #4C4C4E;
-font-size: 55px;
+font-size: 45px;
 font-family: Tahoma;
 font-weight: 700;
 word-wrap: break-word

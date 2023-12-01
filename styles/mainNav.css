@@ -100,3 +100,13 @@
       font-size: 11px;
     }
   }
+  .HelpButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .helpActive{
+    border-radius: var(--TemNumC, 20px);
+    border: 15px solid red;
+    background: #FFF; 
+  }

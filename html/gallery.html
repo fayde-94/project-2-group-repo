@@ -1,4 +1,107 @@
 <div class="w3-animate-right">
-    <h1>Gallery</h1>
+  <!-- <div class="verticalCarousel-container" style="font-size: 1rem"> -->
+  <div class="gallarySlideShow">
+    <div class="mySlides fade">
+      <img
+        src="../images/gallaryImages/alexander-dummer-UH-xs-FizTk-unsplash.jpg"
+        alt=""
+        srcset=""
+      />
+    </div>
+    <div class="mySlides fade">
+      <img
+        src="../images/gallaryImages/boxed-water-is-better-a4o18B9hBEg-unsplash.jpg"
+        alt=""
+        srcset=""
+      />
+    </div>
+    <div class="mySlides fade">
+      <img
+        src="../images/gallaryImages/boxed-water-is-better-Eo-S5LqCxHI-unsplash.jpg"
+        alt=""
+        srcset=""
+      />
+    </div>
+    <div class="mySlides fade">
+      <img
+        src="../images/gallaryImages/boxed-water-is-better-Es17MZQV7-E-unsplash.jpg"
+        alt=""
+        srcset=""
+      />
+    </div>
+    <div class="mySlides fade">
+      <img
+        src="../images/gallaryImages/boxed-water-is-better-WbpsINKjB9Y-unsplash.jpg"
+        alt=""
+        srcset=""
+      />
+    </div>
+    <div class="mySlides fade">
+      <img
+        src="../images/gallaryImages/hoi-an-photographer-AILAeiIBrBg-unsplash.jpg"
+        alt=""
+        srcset=""
+      />
+    </div>
+    <div class="mySlides fade">
+      <img
+        src="../images/gallaryImages/hoi-an-photographer-DyhiB_wFifk-unsplash.jpg"
+        alt=""
+        srcset=""
+      />
+    </div>
+    <div class="mySlides fade">
+      <img
+        src="../images/gallaryImages/ioann-mark-kuznietsov-9QTQFihyles-unsplash.jpg"
+        alt=""
+        srcset=""
+      />
+    </div>
+    <div class="mySlides fade">
+      <img
+        src="../images/gallaryImages/jessica-rockowitz-6c4Uhhe68yQ-unsplash.jpg"
+        alt=""
+        srcset=""
+      />
+    </div>
+
+    <div class="mySlides fade">
+      <img
+        src="../images/gallaryImages/alexander-dummer-UH-xs-FizTk-unsplash.jpg"
+        alt=""
+        srcset=""
+      />
+    </div>
+
+    <div class="mySlides fade">
+      <img
+        src="../images/gallaryImages/jonathan-borba-DUrU_bZV8So-unsplash.jpg"
+        alt=""
+        srcset=""
+      />
+    </div>
   </div>
-  
+</div>
+<!-- </div> -->
+<script>
+  var gallarySlideIndex = 0;
+  gallaryShowSlides();
+  function gallaryShowSlides() {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    // let dots = document.getElementsByClassName("dot");
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    gallarySlideIndex++;
+    if (gallarySlideIndex > slides.length) {
+      gallarySlideIndex = 1;
+    }
+    // for (i = 0; i < dots.length; i++) {
+    //   dots[i].className = dots[i].className.replace(" active", "");
+    // }
+    slides[gallarySlideIndex - 1].style.display = "block";
+    // dots[gallarySlideIndex - 1].className += " active";
+    setTimeout(gallaryShowSlides, 2000); // Change image every 2 seconds
+  }
+</script>
