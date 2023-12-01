@@ -404,8 +404,8 @@ function readTemperatureSensor(data1) {
       entity_id: accentLights,
     },
   });
-  // sendMessage(message);
-  // sendMessage(message1);
+  sendMessage(message);
+  sendMessage(message1);
 }
 
 //Reads results according to statDevice and updates statStatusOfDevice
