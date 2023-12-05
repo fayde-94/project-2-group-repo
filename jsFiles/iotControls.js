@@ -7,7 +7,7 @@ const accessToken =
 let idNumber = 1; //Initial ID number
 let interactFlag = true; //Interact Flag to prevent overwrites
 let isFinallyConnected = false; //Prevent requesting of read states before connection established
-let debugFlag = true; //Debug Flag
+let debugFlag = false; //Debug Flag
 
 //Global variables to check the status of devices
 let statDevice = ""; //Global Variable to seek device's information

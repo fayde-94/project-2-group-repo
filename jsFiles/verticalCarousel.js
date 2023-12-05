@@ -2,17 +2,18 @@ const movementDelay = 400; //movementDelay variable
 
 //When detecting keypresses:
 document.querySelector("body").addEventListener("keydown", function (event) {
-  //If the keypress is up
+  //I) If the keypress is up
   if (
     event.key == "ArrowUp" &&
     document.getElementsByClassName("verticalCardActive").length > 0
   ) {
-    updateAdjCardsBefore(); //Update adjacent card class (sizes)
-    event.preventDefault();
+    updateAdjCardsBefore(); // II) Update adjacent card class (sizes)
+    console.log("$$$:2");
+    event.preventDefault(); // II.5) Prevent normal scrolling
     var verticalCardActive =
       document.getElementsByClassName("verticalCardActive")[0];
-    console.log(verticalCardActive);
-    // If it is the top, call for help, otherwise assign the previous sibling as the next active card
+
+    // III) If it is the top, call for help, otherwise assign the previous sibling as the next active card
     if (verticalCardActive.previousElementSibling) {
       verticalCardActive.previousElementSibling.classList.add(
         "verticalCardActive"
@@ -20,48 +21,75 @@ document.querySelector("body").addEventListener("keydown", function (event) {
     } else {
       callForHelp();
     }
-    //Relocate where the active card is
+    console.log("$$$:3");
+
+    // IV) Relocate where the active card is
     verticalCardActive.classList.remove("verticalCardActive");
     var verticalCardActive =
       document.getElementsByClassName("verticalCardActive")[0];
-    console.log(verticalCardActive);
-    //If the active card has a legitimate previous element, scroll to it
-    if (verticalCardActive.previousElementSibling)
-      $(".verticalCarousel").scrollTo(
-        verticalCardActive.previousElementSibling,
-        movementDelay
-      );
+    console.log("$$$:4");
 
-    updateAdjCardsAfter(); //Update adjacent card class (sizes)
+    // V) If the active card has a legitimate previous element, scroll to it
+    try {
+      var verticalCardAdj = verticalCardActive.previousElementSibling;
+      if (verticalCardAdj.previousElementSibling) {
+        $(".verticalCarousel").scrollTo(
+          verticalCardAdj.previousElementSibling,
+          movementDelay
+        );
+      }
+    } catch (err) {
+      console.log("UpKey; not enough previous siblings");
+    }
+    console.log("$$$:5");
+
+    updateAdjCardsAfter(); // VI) Update adjacent card class (sizes)
+    console.log("$$$:6");
+
     return false;
   }
-  //If Pressing down
+  //I) If Pressing down
   if (
     event.key == "ArrowDown" &&
     document.getElementsByClassName("verticalCardActive").length > 0
   ) {
-    updateAdjCardsBefore(); //Update adjacent card class (sizes)
-    event.preventDefault();
+    updateAdjCardsBefore(); // II) Update adjacent card class (sizes)
+    event.preventDefault(); // II.5) Prevent default scrolling
     var verticalCardActive =
       document.getElementsByClassName("verticalCardActive")[0];
-    $(".verticalCarousel").scrollTo(".verticalCardActive", movementDelay);
-    if (verticalCardActive.nextElementSibling) {
-      verticalCardActive.nextElementSibling.classList.add("verticalCardActive");
+
+    // III) If it is the bottom, call for help, otherwise assign the next sibling as the next active card
+    var verticalCardAdj = verticalCardActive.nextElementSibling;
+    if (verticalCardAdj) {
+      verticalCardAdj.classList.add("verticalCardActive");
     } else {
-      makeFirstCardActive();
+      callForHelp();
     }
+
+    // IV) Relocate where the active card is
     verticalCardActive.classList.remove("verticalCardActive");
-    updateAdjCardsAfter(); //Update adjacent card class (sizes)
+    // V) If the active card has a legitimate previous element, scroll to it
+    try {
+      var verticalCardAdj = verticalCardActive.nextElementSibling;
+      if (verticalCardAdj)
+        $(".verticalCarousel").scrollTo(
+          verticalCardActive.previousElementSibling,
+          movementDelay
+        );
+    } catch (err) {
+      console.log("Down Key not enough next next siblings");
+    }
+    updateAdjCardsAfter(); // VI) Update adjacent card class (sizes)
 
     return false;
   }
+  //I) If you are in the help button mode
   if (
     (event.key == "ArrowDown" || event.key == "ArrowUp") &&
     $(".helpActive").length > 0
   ) {
+    // II) Escape to the first card
     makeFirstCardActive();
-
-    updateAdjCardsAfter(); //Update adjacent cards
   }
   // else if(event.key=="ArrowDown") {
   //   event.preventDefault();
@@ -70,12 +98,15 @@ document.querySelector("body").addEventListener("keydown", function (event) {
   // };
 });
 
+//Code to make the first
 const makeFirstCardActive = () => {
   document
     .getElementsByClassName("verticalCarousel")[0]
     .children[0].classList.add("verticalCardActive");
   $(".verticalCarousel").scrollTo(".verticalCardActive", movementDelay);
   $("#helpImg")[0].classList.remove("helpActive");
+
+  updateAdjCardsAfter();
 };
 
 //Update the first portion
