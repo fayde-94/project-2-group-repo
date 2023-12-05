@@ -277,19 +277,19 @@ function readDoorbell(data1) {
   console.log("Reached Doorbell");
 }
 
+//How we deal with reading lights and updating the vertical card's accordingly
 function readLight(data1, deviceID) {
-  //REPLACE ALL OF THESE WITH APPROPRIATE ACTIONS!
   const newState = data1.event.data.new_state.state;
   const obj = checkWhichLight(deviceID);
   const elementID = obj.elem;
   debug("Light: ", deviceID, "; Status: ", newState); //debug
   if (newState == "on") {
-    elementID.innerHTML = `<img src="../images/lightOn.png">
-     <p>${obj.name}</p>
+    elementID.innerHTML = `<img class="smartLoftIcon" src="../images/lightOn.png">
+     <p>${obj.name}s</p>
      <div class="lightOn-OffDiv smartLightON" >ON</div>`;
   } else if (newState == "off") {
-    elementID.innerHTML = `<img src="../images/light.png">
-     <p>${obj.name}</p>
+    elementID.innerHTML = `<img class="smartLoftIcon" src="../images/light.png">
+     <p>${obj.name}s</p>
      <div class="lightOn-OffDiv smartLightOFF">OFF</div>`;
   } else {
     console.log("Error: Unknown new light state: ", newState);
@@ -352,14 +352,12 @@ function readOtherDataType(data1) {
 //How we deal with readings from the weight sensor; it detects and stores the value in KG
 function readWeightSensor(data1) {
   //REPLACE ALL ITEMS IN THIS AREA WITH APPROPRIATE FUNCTIONS
-  // const weightText = document.getElementById("fancyTestWeight"); //CHANGE
   const givenWeightkgs = data1.event.data.new_state.state;
   const givenWeightlbs = givenWeightkgs * 2.2;
   debug(`Weight = ${givenWeightkgs}kgs or ${givenWeightlbs}lbs`); //debug
   document.getElementById(
     "weightDiv"
   ).innerHTML = `Weight = ${givenWeightkgs}kgs or ${givenWeightlbs}lbs`;
-  // weightText.innerHTML = `Weight = ${givenWeightkgs}kgs or ${givenWeightlbs}lbs`; //CHANGE
 }
 
 //Read Humidity Sensor

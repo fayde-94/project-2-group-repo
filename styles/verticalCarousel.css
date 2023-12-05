@@ -1,47 +1,54 @@
 .VerticalCardDiv{
-    width: 1400px;
-    height: 150px;
+    width: 600px;
+    height: 100px;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    gap: 30PX;
     
-    margin: 5px;
+    /* margin: 5px; */
     border-radius: var(--TemNumC, 20px);
-    border: 15px solid  #717250;
+    border: 10px solid  #717250;
     /* background: #FFF; */
 
     color: #4C4C4E;
-font-size: 45px;
-font-family: Tahoma;
-font-weight: 700;
-word-wrap: break-word
+    font-size: 45px;
+    font-family: Tahoma;
+    font-weight: 700;
+    word-wrap: break-word
 }
 .verticalCarousel-container{
     max-height: 90vh;
-    display: flex;
+    /* display: flex;
     align-items: center;
-    justify-content: center;
-
+    justify-content: center; */
 }
 .verticalCarousel{
-    height: 465px;
+    display: flex;
+    flex-direction: column;
+    height: 500px;
     overflow-y: auto;
     scroll-snap-type: y mandatory;
-
+    align-items: center;
 }
 .verticalCardActive{
     border-radius: var(--TemNumC, 20px);
-    border: 15px solid  #FBBC05;
+    border: 10px solid  #FBBC05;
     background: #FFF;   
+    width: 1000px
 }
 /* Hide scrollbar for Chrome, Safari and Opera */
 .verticalCarousel::-webkit-scrollbar {
     display: none;
-  }
+}
   
-  /* Hide scrollbar for IE, Edge and Firefox */
-  .verticalCarousel {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-  }
+/* Hide scrollbar for IE, Edge and Firefox */
+.verticalCarousel {
+-ms-overflow-style: none;  /* IE and Edge */
+scrollbar-width: none;  /* Firefox */
+}
+
+
+.vCardAdj{
+    width: 800px
+}
+
