@@ -68,8 +68,8 @@
   /* The dots/bullets/indicators */
   .dot {
     cursor: pointer;
-    height: 15px;
-    width: 15px;
+    height: 3.7037vh;
+    width: 3.7037vh;
     margin: 0 2px;
     background-color: #bbb;
     border-radius: 50%;
@@ -114,4 +114,11 @@
     border-radius: var(--TemNumC, 20px);
     border: 15px solid red;
     background: #FFF; 
+  }
+
+  #dotBar{
+    position: absolute;
+    top:32vh;
+    left:39vw
+
   }
