@@ -94,19 +94,20 @@ body {
 
 h1 {
   font-size: 3vw; /* Adjust font size based on viewport width */
-  margin-bottom: 2vw; /* Adjust margin based on viewport width */
+  margin-top: 6vw; /* Adjust margin based on viewport width */
   animation: fadeIn 2s ease-in-out;
   font-family: Tahoma; /* Fallback to sans-serif if Tahoma isn't available */
 }
 
 .date-time-box {
   width: 28vw; /* Adjust width based on viewport width */
-  height: 10vh; /* Adjust height based on viewport height */
+  height: 16vh; /* Adjust height based on viewport height */
   padding: 4vw; /* Adjust padding based on viewport width */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 2vw;
   text-align: center;
   border: 1px solid #FFFF;
   border-radius: 1vw; /* Adjust border-radius based on viewport width */
@@ -138,7 +139,7 @@ h2 {
   background-image: url('../images/Weather.gif'); /* Replace with your image path */
   background-size: cover;
   flex-direction: column;
-  margin-top:2vw;
+  margin-top: 4vw;
   border-radius: 2vw;
   justify-content: center;
   top: 0%;
