@@ -17,7 +17,7 @@ body {
   left: 50%; */
   transform: translate(-50%, -50%);
   opacity: 1;
-  animation: fadeOutImage 3s ease-in-out forwards;
+  animation: fadeOutImage 2s ease-in-out forwards;
   z-index: 1;
   width: auto;
   height: auto;
@@ -53,14 +53,12 @@ body {
 }
 .arrow-img {
   font-size: 1vw; /* Adjust font size based on viewport width */
-  margin-top: 8vw;
+  margin-top: 7vw;
   width: 3vw;
   max-width: 3vw;
   height: auto;
   animation: fadeInLogoArrow 2s ease-in-out forwards, moveUp 2s ease-in-out forwards;
 }
-
-
 
 .container {
   width: 60vw;
@@ -102,7 +100,7 @@ h1 {
 }
 
 .date-time-box {
-  width: 22vw; /* Adjust width based on viewport width */
+  width: 28vw; /* Adjust width based on viewport width */
   height: 10vh; /* Adjust height based on viewport height */
   padding: 4vw; /* Adjust padding based on viewport width */
   display: flex;
@@ -111,7 +109,7 @@ h1 {
   align-items: center;
   text-align: center;
   border: 1px solid #FFFF;
-  border-radius: 0vw; /* Adjust border-radius based on viewport width */
+  border-radius: 1vw; /* Adjust border-radius based on viewport width */
   background-color: #fff;
 }
 
@@ -140,6 +138,8 @@ h2 {
   background-image: url('../images/Weather.gif'); /* Replace with your image path */
   background-size: cover;
   flex-direction: column;
+  margin-top:2vw;
+  border-radius: 2vw;
   justify-content: center;
   top: 0%;
 }  
