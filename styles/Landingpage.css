@@ -5,8 +5,8 @@ body {
   width: 100vw;
   height: 100vh;
   display:flex;
-  align-items: center;
-  justify-content: center; 
+  /* align-items: center; */
+  /* justify-content: center;  */
   background: linear-gradient(#F0E1DD 100%, #D9D9D9 100%);
   overflow: hidden;
 }
@@ -15,15 +15,25 @@ body {
   position: absolute;
   /* top: 50%;
   left: 50%; */
-  transform: translate(-50%, -50%);
+  /* transform: translate(-50%, -50%); */
   opacity: 1;
   animation: fadeOutImage 2s ease-in-out forwards;
   z-index: 1;
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  max-height: 100%;
+  width: 100vw;
+  height: 100vh;
+  /* max-width: 100%;
+  max-height: 100%; */
 }
+
+#Loftimg{
+  width:100vw;
+  height:100vh;
+}
+
+
+
+
+
 @keyframes fadeOutImage {
   0% {
     opacity: 1;
@@ -34,28 +44,28 @@ body {
 }
 
 .BigDev{
-  width: 80vw;
+  width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: row;
-  align-content: center;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: space-around;
 
 }
 .Logo {
   width: 14vw; /* Adjust width based on viewport width */
-  height: auto;
+  /* height: auto;
   max-width: 14vw;
   max-height: 14vw;
-  margin-top: 5vw;
+  margin-top: 5vw; */
   animation: fadeInLogoArrow 2s ease-in-out forwards, moveUp 2s ease-in-out forwards;
 
 }
 .arrow-img {
   font-size: 1vw; /* Adjust font size based on viewport width */
-  margin-top: 7vw;
   width: 3vw;
-  max-width: 3vw;
+  padding-left: 11vw;
+  /* max-width: 3vw; */
   height: auto;
   animation: fadeInLogoArrow 2s ease-in-out forwards, moveUp 2s ease-in-out forwards;
 }
@@ -94,7 +104,7 @@ body {
 
 h1 {
   font-size: 3vw; /* Adjust font size based on viewport width */
-  margin-top: 6vw; /* Adjust margin based on viewport width */
+  /* margin-top: 6vw; Adjust margin based on viewport width */
   animation: fadeIn 2s ease-in-out;
   font-family: Tahoma; /* Fallback to sans-serif if Tahoma isn't available */
 }
@@ -107,7 +117,7 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 2vw;
+  /* margin-top: 2vw; */
   text-align: center;
   border: 1px solid #FFFF;
   border-radius: 1vw; /* Adjust border-radius based on viewport width */
@@ -134,8 +144,8 @@ h2 {
   margin-top: auto;
 }
 .weather-container {
-  width: 25vw;
-  height: 11vw;
+  width: 20vw;
+  height: 12vh;
   background-image: url('../images/Weather.gif'); /* Replace with your image path */
   background-size: cover;
   flex-direction: column;
