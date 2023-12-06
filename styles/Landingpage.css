@@ -4,7 +4,7 @@ body {
   padding: 0;
   width: 100vw;
   height: 100vh;
-  display:flex;
+  /* display:flex; */
   /* align-items: center; */
   /* justify-content: center;  */
   background: linear-gradient(#F0E1DD 100%, #D9D9D9 100%);
@@ -160,19 +160,19 @@ h2 {
 }  
 .weatherwidget-io {
       width: 30vw; /* Adjust the width as needed */
-      height: 25`vh; /* Adjust the height as needed */
+      height: 25vh; /* Adjust the height as needed */
       /* border: 1px solid #ccc; */
-      padding-left: 10px;
+      /* padding-left: 10px;
       padding-right: 10px;
-      margin-top: 20px; 
-      margin-bottom: 500px;
+      margin-top: 20px;  */
+      /* margin-bottom: 500px;
       display: flex;
       flex-direction: row;
       align-items: center;
-      justify-content: center;
+      justify-content: center; */
       /* background-color: #f9f9f9; */
-      text-decoration: none;
+      /* text-decoration: none;
       color: white; /* Change text color */
-      font-family: Tahoma;
-      font-size: 2000px;
+      /* font-family: Tahoma;
+      font-size: 2000px; */ */
   }
