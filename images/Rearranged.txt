@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="../styles/Landingpage.css" />
+    <!-- Link to CSS file -->
+  </head>
+  <body>
+    <!-- Replace 'your-image.png' with the actual image path -->
+    <img class="image-container" src="" alt="Initial Image" />
+
+    <div class="BigDev">
+      <div class="Logo">
+        <img src="/images/Smart Loft Logo.png" alt="Logo" class="Logo" />
+      </div>
+
+      <div class="container">
+        <h1>Hello, Elizabeth. Welcome Home.</h1>
+        <div class="date-time-box">
+          <h2>Friday, Dec 30, 2023</h2>
+          <p id="CurrentDateTime">15:38</p>
+        </div>
+        <div class="weather-container">
+          <a
+            class="weatherwidget-io"
+            href="https://forecast7.com/en/51d05n114d07/calgary/"
+            data-label_1="CALGARY"
+            data-mode="Current"
+            data-days="3"
+            >CALGARY</a
+          >
+          <script>
+            !(function (d, s, id) {
+              var js,
+                fjs = d.getElementsByTagName(s)[0];
+              if (!d.getElementById(id)) {
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "https://weatherwidget.io/js/widget.min.js";
+                fjs.parentNode.insertBefore(js, fjs);
+              }
+            })(document, "script", "weatherwidget-io-js");
+          </script>
+        </div>
+
+        <div class="arrow-img"></div>
+        <img src="/images/Forwardarrow.png" alt="arrow" class="arrow-img" />
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,160 +1,160 @@
-/* Basic styling for the layout */
 body {
   font-family: Tahoma;
-  margin: 0;
+  margin:0 auto;
   padding: 0;
-  display: flex;
-  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  display:flex;
   align-items: center;
   justify-content: center; 
-  height: 100vh;
   background: linear-gradient(#F0E1DD 100%, #D9D9D9 100%);
-  
+  overflow: hidden;
 }
+
+.image-container {
+  position: absolute;
+  /* top: 50%;
+  left: 50%; */
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  animation: fadeOutImage 3s ease-in-out forwards;
+  z-index: 1;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+@keyframes fadeOutImage {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.BigDev{
+  width: 80vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: flex-start;
+
+}
+.Logo {
+  width: 14vw; /* Adjust width based on viewport width */
+  height: auto;
+  max-width: 14vw;
+  max-height: 14vw;
+  margin-top: 5vw;
+  animation: fadeInLogoArrow 2s ease-in-out forwards, moveUp 2s ease-in-out forwards;
+
+}
+.arrow-img {
+  font-size: 1vw; /* Adjust font size based on viewport width */
+  margin-top: 8vw;
+  width: 3vw;
+  max-width: 3vw;
+  height: auto;
+  animation: fadeInLogoArrow 2s ease-in-out forwards, moveUp 2s ease-in-out forwards;
+}
+
+
 
 .container {
-  width: 100%;
-  height: 100%;
+  width: 60vw;
+  height: 80vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   font-family: Tahoma;
+  opacity:0;
   background: linear-gradient(#F0E1DD 100%, #D9D9D9 100%);
-  position: relative; /* For absolute positioning within the container */
+  animation: fadeInContainer 2s ease-in-out forwards, moveUp 2s ease-in-out forwards;
+  
+  
 }
+@keyframes fadeInContainer {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes moveUp {
+  0% {
+    transform: translateY(20px); /* Start slightly below */
+  }
+  100% {
+    transform: translateY(0); /* Move to the original position */
+  }
+}
+
 
 h1 {
-  font-size: 48px;
-  margin-bottom: 20px;
+  font-size: 3vw; /* Adjust font size based on viewport width */
+  margin-bottom: 2vw; /* Adjust margin based on viewport width */
+  animation: fadeIn 2s ease-in-out;
+  font-family: Tahoma; /* Fallback to sans-serif if Tahoma isn't available */
 }
-
-.middle-section {
-  display: flex;
-  width: 40%;
-  align-items: center;
-  position: relative; 
-  
-  
-  /* For absolute positioning within the middle section */
-}
-
-  .logo {
-    width: 20%; /* Adjust the width of the logo */
-    height: auto; /* Auto-adjust the height based on the width */
-    position: absolute;
-    top: 40%;
-    left: 50px;
-    transform: translateY(-50%);
-    
-  }
-
 
 .date-time-box {
-  width: 310%;
-  height: 60%;
-  padding: 25px;
+  width: 22vw; /* Adjust width based on viewport width */
+  height: 10vh; /* Adjust height based on viewport height */
+  padding: 4vw; /* Adjust padding based on viewport width */
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   text-align: center;
   border: 1px solid #FFFF;
-  border-radius: 10px;
+  border-radius: 0vw; /* Adjust border-radius based on viewport width */
   background-color: #fff;
-  position: relative; /* For absolute positioning within the date-time box */
 }
 
+h2 {
+  color: #000;
+  text-align: center;
+  font-family: Tahoma;
+  font-size: 1.8vw; /* Adjust font size based on viewport width */
+  font-style: normal;
+  font-weight: 700;
+  line-height: 100%;
+}
 #CurrentDateTime {
-color: #000;
-text-align: center;
-/* Cards */
-text-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25);
-font-family: Tahoma;
-font-size: 170px;
-font-style: normal;
-font-weight: 700;
-/* line-height: normal; */
-height: 60%;
-margin-top: auto;
-}
-
-.weather-box {
-  width: 25%;
-  /* max-width: 582px; */
-  height: 250px;
-  flex-shrink:0;
-  padding: 15px;
-  border:1px solid #000;
-  border-radius: 0px;
-  background-color: #fff;
-  /* border-radius: 30px; */
-  opacity: 0.5;
-  overflow: hidden;
-  margin-bottom: 2.80%;
-  position: relative;
-   background: url(<Weather.gif>), lightgray 50% / cover no-repeat;
-/* background blur */
-   backdrop-filter: blur(15px);
-}
-
-.weather-box h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
   color: #000;
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
+  text-align: center;
+  font-family: Tahoma;
+  font-size: 8vw; /* Adjust font size based on viewport width */
+  font-style: normal;
+  font-weight: 700;
+  height: 60%;
+  margin-top: auto;
 }
-
-.weather-box p {
-  margin: 5px 0;
-  font-size: 18px;
-  color: #000;
-  z-index: 2;
-}
-
-/* .weather-gif {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 50%;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  position: relative;
-  z-index: 1;
-} */
-
-.weather-gif {
-  width: 100%; /* Ensure the image fills the container */
-  height: 100%; /* Ensure the image fills the container */
-  object-fit: cover; /* Maintain aspect ratio and cover the entire box */
-  position: absolute; /* Position the image */
-  top: 0;
-  left: 0;
-}
-
-
-.arrow-img {
-  font-size: 141px;
-  width: 10%;
-  height: auto;
-  position: absolute;
-  top: 40%;
-  right: 20px;
-  transform: translateY(-50%);
-  
-}
-
-h2{
-  color: #000;
-text-align: center;
-font-family: Tahoma;
-font-size: 25px;
-font-style: normal;
-font-weight: 700;
-line-height: 100%; /* 45px */
-
-}
-
+.weather-container {
+  width: 25vw;
+  height: 11vw;
+  background-image: url('../images/Weather.gif'); /* Replace with your image path */
+  background-size: cover;
+  flex-direction: column;
+  justify-content: center;
+  top: 0%;
+}  
+.weatherwidget-io {
+      width: 300px; /* Adjust the width as needed */
+      height: 200px; /* Adjust the height as needed */
+      /* border: 1px solid #ccc; */
+      padding: 10px;
+      margin: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      /* background-color: #f9f9f9; */
+      text-decoration: none;
+      color: black; /* Change text color */
+      font-family: Tahoma;
+  }
