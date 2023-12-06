@@ -24,8 +24,9 @@
 
   /* Slideshow container */
   .navslideshow-container {
-    max-width: 1000px;
+    height: 20.092vh;
     position: relative;
+    
     margin: auto;
   }
 
@@ -56,6 +57,10 @@
   .prev:hover,
   .next:hover {
     background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  .shadowEffect{
+    box-shadow: 10px 10px black;
   }
 
   

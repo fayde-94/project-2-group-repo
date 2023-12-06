@@ -7,7 +7,7 @@ const accessToken =
 let idNumber = 1; //Initial ID number
 let interactFlag = true; //Interact Flag to prevent overwrites
 let isFinallyConnected = false; //Prevent requesting of read states before connection established
-let debugFlag = false; //Debug Flag
+let debugFlag = true; //Debug Flag
 
 //Global variables to check the status of devices
 let statDevice = ""; //Global Variable to seek device's information
@@ -285,11 +285,11 @@ function readLight(data1, deviceID) {
   debug("Light: ", deviceID, "; Status: ", newState); //debug
   if (newState == "on") {
     elementID.innerHTML = `<img class="smartLoftIcon" src="../images/lightOn.png">
-     <p>${obj.name}s</p>
+     <p>${obj.name}</p>
      <div class="lightOn-OffDiv smartLightON" >ON</div>`;
   } else if (newState == "off") {
     elementID.innerHTML = `<img class="smartLoftIcon" src="../images/light.png">
-     <p>${obj.name}s</p>
+     <p>${obj.name}</p>
      <div class="lightOn-OffDiv smartLightOFF">OFF</div>`;
   } else {
     console.log("Error: Unknown new light state: ", newState);

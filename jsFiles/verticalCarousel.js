@@ -1,4 +1,4 @@
-const movementDelay = 400; //movementDelay variable
+const movementDelay = 300; //movementDelay variable
 
 //When detecting keypresses:
 document.querySelector("body").addEventListener("keydown", function (event) {
@@ -8,7 +8,6 @@ document.querySelector("body").addEventListener("keydown", function (event) {
     document.getElementsByClassName("verticalCardActive").length > 0
   ) {
     updateAdjCardsBefore(); // II) Update adjacent card class (sizes)
-    console.log("$$$:2");
     event.preventDefault(); // II.5) Prevent normal scrolling
     var verticalCardActive =
       document.getElementsByClassName("verticalCardActive")[0];
@@ -21,13 +20,11 @@ document.querySelector("body").addEventListener("keydown", function (event) {
     } else {
       callForHelp();
     }
-    console.log("$$$:3");
 
     // IV) Relocate where the active card is
     verticalCardActive.classList.remove("verticalCardActive");
     var verticalCardActive =
       document.getElementsByClassName("verticalCardActive")[0];
-    console.log("$$$:4");
 
     // V) If the active card has a legitimate previous element, scroll to it
     try {
@@ -41,10 +38,8 @@ document.querySelector("body").addEventListener("keydown", function (event) {
     } catch (err) {
       console.log("UpKey; not enough previous siblings");
     }
-    console.log("$$$:5");
 
     updateAdjCardsAfter(); // VI) Update adjacent card class (sizes)
-    console.log("$$$:6");
 
     return false;
   }
