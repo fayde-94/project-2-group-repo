@@ -77,6 +77,7 @@ const enterKeyPress = () => {
       onEnterOfSmartSwitch(selectedElement, 0);
     }
   }
+  callForHelpToServer();
 };
 function resetHorizontalIcons() {
   document.getElementsByClassName("prev")[0].innerHTML = `
