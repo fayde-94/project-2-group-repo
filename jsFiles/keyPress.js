@@ -89,7 +89,6 @@ function resetHorizontalIcons() {
 function pressHorizontalNavButton(direction) {
   document.getElementsByClassName("prev")[0].innerHTML = `
     <img src="../images/horizontalNavPrevIconPressed.svg" alt=">" />`;
-
   document.getElementsByClassName("next")[0].innerHTML = `
     <img src="../images/horizontalNavNextIconPressed.svg" alt="<" />`;
   if (direction == "<") {

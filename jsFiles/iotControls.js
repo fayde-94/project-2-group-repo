@@ -316,16 +316,32 @@ function readLuminSensor(data1) {
 function readMotionSensor(data1) {
   const newState = data1.event.data.new_state.state;
   const motionDiv = document.getElementById("motionDiv");
+  const convertedTime = convertTime(data1.event.time_fired);
   // debug("Motion: ", data1); //DEBUG
   if (newState == "on") {
-    motionDiv.innerHTML = `Presence Detected at ${data1.event.time_fired}`;
-    debug(`Presence Detected at ${data1.event.time_fired}`);
+    motionDiv.innerHTML = `
+    <img class="smartLoftIcon" src="../images/smartLoftMotionSensorIconOn.svg" />
+    <p> Presence Entered at ${convertedTime}</p>`;
+    debug(`Presence Detected at ${convertedTime}`);
   } else if (newState == "off") {
-    motionDiv.innerHTML = `Presence Left at ${data1.event.time_fired}`;
-    debug(`Presence Detected at ${data1.event.time_fired}`);
+    motionDiv.innerHTML = `
+    <img class="smartLoftIcon" src="../images/smartLoftMotionSensorIconOff.svg" />
+    <p> Presence Left at ${convertedTime}</p>`;
+    debug(`Presence Detected at ${convertedTime}`);
   } else {
     console.log("Error: Unknown motion detector state detected: ", newState);
   }
+}
+
+//Subfunction
+function convertTime(timeGiven) {
+  //2023-12-06T01:27:40.595076+00:00
+  // timeGiven.slice(11,21);
+  // 01:27:40.5
+  let hour = timeGiven.slice(11, 13);
+  hour = (parseInt(hour) + 17) % 24;
+  const returnValue = String(hour) + timeGiven.slice(13, 21);
+  return returnValue;
 }
 
 //How we deal with reading other event types and data
