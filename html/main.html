@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="../styles/verticalCarousel.css" />
     <link rel="stylesheet" href="../styles/smartLoft.css" />
     <link rel="stylesheet" href="../styles/gallary.css" />
+    <link rel="stylesheet" href="../styles/Landingpage.css" />
+
     <!-- <link rel="stylesheet" href="../styles/.css" /> -->
     <title>Garden Loft</title>
   </head>
@@ -18,6 +20,67 @@
     <div class="HelpButton">
       <img id="helpImg" src="../images/Call for Help.png" />
     </div>
+    <section class="Landingpage">
+      <div class="image-container">
+        <img
+          id="Loftimg"
+          src="../images/Landing Page-1.png"
+          alt="Initial Image"
+        />
+      </div>
+
+      <div class="BigDev">
+        <div class="Logo">
+          <img src="/images/Smart Loft Logo.png" alt="Logo" class="Logo" />
+        </div>
+
+        <div class="container">
+          <h1>Hello, Elizabeth. Welcome Home.</h1>
+          <div class="date-time-box">
+            <h2>Friday, Dec 30, 2023</h2>
+            <p id="CurrentDateTime">15:38</p>
+          </div>
+          <div class="weather-container">
+            <a
+              class="weatherwidget-io"
+              href="https://forecast7.com/en/51d05n114d07/calgary/"
+              data-label_1="CALGARY"
+              data-icons="Climacons Animated"
+              data-mode="Current"
+              data-shadow="#000000"
+              data-textcolor="#ffffff"
+              data-highcolor="#ffffff"
+              data-lowcolor="#ffffff"
+              data-suncolor="#ffffff"
+              data-mooncolor="#ffffff"
+              data-cloudcolor="#ffffff"
+              data-cloudfill="#ffffff"
+              data-raincolor="#ffffff"
+              data-snowcolor="#ffffff"
+              >CALGARY</a
+            >
+            <script>
+              !(function (d, s, id) {
+                var js,
+                  fjs = d.getElementsByTagName(s)[0];
+                if (!d.getElementById(id)) {
+                  js = d.createElement(s);
+                  js.id = id;
+                  js.src = "https://weatherwidget.io/js/widget.min.js";
+                  fjs.parentNode.insertBefore(js, fjs);
+                }
+              })(document, "script", "weatherwidget-io-js");
+            </script>
+          </div>
+        </div>
+
+        <img
+          src="/images/horizontalNavNextIconPressed.png"
+          alt="arrow"
+          class="arrow-img"
+        />
+      </div>
+    </section>
 
     <div id="mainPage"></div>
     <script src="../jsFiles/mainNav.js"></script>

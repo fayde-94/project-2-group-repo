@@ -1,0 +1,177 @@
+/* body {
+    font-family: Tahoma;
+    margin:0 auto;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    display:flex;
+    /* align-items: center; 
+     justify-content: center;  
+    background: linear-gradient(#F0E1DD 100%, #D9D9D9 100%);
+    overflow: hidden;
+  } */
+  
+  .image-container {
+    position: absolute;
+    /* top: 50%;
+    left: 50%; */
+    /* transform: translate(-50%, -50%); */
+    opacity: 1;
+    animation: fadeOutImage 2s ease-in-out forwards;
+    z-index: 1;
+    width: 100vw;
+    height: 90vh;
+    /* max-width: 100%;
+    max-height: 100%; */
+  }
+  
+  #Loftimg{
+    width:100vw;
+    height:90vh;
+  } 
+  
+  @keyframes fadeOutImage {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  .BigDev{
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background: linear-gradient(#F0E1DD 100%, #D9D9D9 100%);
+  
+  }
+  .Logo {
+    width: 10vw; /* Adjust width based on viewport width */
+    /* height: auto;
+    max-width: 14vw;
+    max-height: 14vw;
+    margin-top: 5vw; */
+    animation: fadeInLogoArrow 2s ease-in-out forwards, moveUp 2s ease-in-out forwards;
+  
+  }
+  .arrow-img {
+    font-size: 1vw; /* Adjust font size based on viewport width */
+    width: 3vw;
+    padding-left: 11vw;
+    /* max-width: 3vw; */
+    height: auto;
+    animation: fadeInLogoArrow 2s ease-in-out forwards, moveUp 2s ease-in-out forwards;
+  }
+  
+  .container {
+    width: 60vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-family: Tahoma;
+    opacity:0;
+    background: linear-gradient(#F0E1DD 100%, #D9D9D9 100%);
+    animation: fadeInContainer 2s ease-in-out forwards, moveUp 2s ease-in-out forwards;
+    
+    
+  }
+  @keyframes fadeInContainer {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes moveUp {
+    0% {
+      transform: translateY(20px); /* Start slightly below */
+    }
+    100% {
+      transform: translateY(0); /* Move to the original position */
+    }
+  }
+  
+  
+  h1 {
+    font-size: 3vw; /* Adjust font size based on viewport width */
+    /* margin-top: 6vw; Adjust margin based on viewport width */
+    animation: fadeIn 2s ease-in-out;
+    font-family: Tahoma; /* Fallback to sans-serif if Tahoma isn't available */
+  }
+  
+  .date-time-box {
+    width: 40vw; /* Adjust width based on viewport width */
+    height: 25vh; /* Adjust height based on viewport height */
+    padding: 8vw; /* Adjust padding based on viewport width */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* margin-top: 2vw; */
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 1vw; /* Adjust border-radius based on viewport width */
+    /* background-color: #fff; */
+    background: linear-gradient(#F0E1DD 100%, #D9D9D9 100%);
+  }
+  
+  h2 {
+    color: #000;
+    text-align: center;
+    font-family: Tahoma;
+    font-size: 1.8vw; /* Adjust font size based on viewport width */
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+  }
+  #CurrentDateTime {
+    color: #000;
+    text-align: center;
+    font-family: Tahoma;
+    font-size: 8vw; /* Adjust font size based on viewport width */
+    font-style: normal;
+    font-weight: 700;
+    height: 60%;
+    margin-top: auto;
+  }
+  .weather-container {
+    /* width: 30vw;
+    height: 28vh; */
+    width: 28vw;
+    height: 14vh;
+    /* padding: 4vw; */
+    background-image: url('../images/Weather.gif'); /* Replace with your image path */
+    background-size: cover;
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: center;
+    align-items: center;
+    /* margin-top: 3vw; */
+    border-radius: 2vw;
+    /* top: 0%; */
+  }  
+  .weatherwidget-io {
+        width: 30vw; /* Adjust the width as needed */
+        height: 25vh; /* Adjust the height as needed */
+        /* border: 1px solid #ccc; */
+        /* padding-left: 10px;
+        padding-right: 10px; */
+        /* margin-top: 20px; 
+        margin-bottom: 500px; */
+        /* display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center; */
+        /* background-color: #f9f9f9; */
+        /* text-decoration: none; */
+        color: white; /* Change text color */
+        font-family: Tahoma;
+        /* font-size: 2000px; */
+    }

@@ -61,6 +61,7 @@ const downArrowPress = () => {
 
 const anyKeyPressToLoadMainPage = () => {
   if (!document.getElementById("mainPage").innerHTML) {
+        $(".Landingpage")[0].innerHTML="";
     $("#mainPage").load(
       "navMainCarousel.html",
       function (responseTxt, statusTxt, xhr) {
