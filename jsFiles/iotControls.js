@@ -277,18 +277,18 @@ function readDoorbell(data1) {
   console.log("Reached Doorbell");
 }
 
+//How we deal with reading lights and updating the vertical card's accordingly
 function readLight(data1, deviceID) {
-  //REPLACE ALL OF THESE WITH APPROPRIATE ACTIONS!
   const newState = data1.event.data.new_state.state;
   const obj = checkWhichLight(deviceID);
   const elementID = obj.elem;
   debug("Light: ", deviceID, "; Status: ", newState); //debug
   if (newState == "on") {
-    elementID.innerHTML = `<img src="../images/lightOn.png">
+    elementID.innerHTML = `<img class="smartLoftIcon" src="../images/lightOn.png">
      <p>${obj.name}</p>
      <div class="lightOn-OffDiv smartLightON" >ON</div>`;
   } else if (newState == "off") {
-    elementID.innerHTML = `<img src="../images/light.png">
+    elementID.innerHTML = `<img class="smartLoftIcon" src="../images/light.png">
      <p>${obj.name}</p>
      <div class="lightOn-OffDiv smartLightOFF">OFF</div>`;
   } else {
@@ -316,16 +316,32 @@ function readLuminSensor(data1) {
 function readMotionSensor(data1) {
   const newState = data1.event.data.new_state.state;
   const motionDiv = document.getElementById("motionDiv");
+  const convertedTime = convertTime(data1.event.time_fired);
   // debug("Motion: ", data1); //DEBUG
   if (newState == "on") {
-    motionDiv.innerHTML = `Presence Detected at ${data1.event.time_fired}`;
-    debug(`Presence Detected at ${data1.event.time_fired}`);
+    motionDiv.innerHTML = `
+    <img class="smartLoftIcon" src="../images/smartLoftMotionSensorIconOn.svg" />
+    <p> Presence Entered at ${convertedTime}</p>`;
+    debug(`Presence Detected at ${convertedTime}`);
   } else if (newState == "off") {
-    motionDiv.innerHTML = `Presence Left at ${data1.event.time_fired}`;
-    debug(`Presence Detected at ${data1.event.time_fired}`);
+    motionDiv.innerHTML = `
+    <img class="smartLoftIcon" src="../images/smartLoftMotionSensorIconOff.svg" />
+    <p> Presence Left at ${convertedTime}</p>`;
+    debug(`Presence Detected at ${convertedTime}`);
   } else {
     console.log("Error: Unknown motion detector state detected: ", newState);
   }
+}
+
+//Subfunction
+function convertTime(timeGiven) {
+  //2023-12-06T01:27:40.595076+00:00
+  // timeGiven.slice(11,21);
+  // 01:27:40.5
+  let hour = timeGiven.slice(11, 13);
+  hour = (parseInt(hour) + 17) % 24;
+  const returnValue = String(hour) + timeGiven.slice(13, 21);
+  return returnValue;
 }
 
 //How we deal with reading other event types and data
@@ -352,14 +368,12 @@ function readOtherDataType(data1) {
 //How we deal with readings from the weight sensor; it detects and stores the value in KG
 function readWeightSensor(data1) {
   //REPLACE ALL ITEMS IN THIS AREA WITH APPROPRIATE FUNCTIONS
-  // const weightText = document.getElementById("fancyTestWeight"); //CHANGE
   const givenWeightkgs = data1.event.data.new_state.state;
   const givenWeightlbs = givenWeightkgs * 2.2;
   debug(`Weight = ${givenWeightkgs}kgs or ${givenWeightlbs}lbs`); //debug
   document.getElementById(
     "weightDiv"
   ).innerHTML = `Weight = ${givenWeightkgs}kgs or ${givenWeightlbs}lbs`;
-  // weightText.innerHTML = `Weight = ${givenWeightkgs}kgs or ${givenWeightlbs}lbs`; //CHANGE
 }
 
 //Read Humidity Sensor

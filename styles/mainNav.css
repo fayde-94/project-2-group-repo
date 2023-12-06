@@ -24,8 +24,9 @@
 
   /* Slideshow container */
   .navslideshow-container {
-    max-width: 1000px;
+    height: 20.092vh;
     position: relative;
+    
     margin: auto;
   }
 
@@ -58,14 +59,18 @@
     background-color: rgba(0, 0, 0, 0.8);
   }
 
+  .shadowEffect{
+    box-shadow: 10px 10px black;
+  }
+
   
 
   /* The dots/bullets/indicators */
   .dot {
     cursor: pointer;
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
+    height: 1.406vw;
+    width: 1.406vw;
+    margin: 0.2vw;
     background-color: #bbb;
     border-radius: 50%;
     display: inline-block;
@@ -110,3 +115,20 @@
     border: 15px solid red;
     background: #FFF; 
   }
+
+  #dotBar{
+    position: absolute;
+    bottom:62vh;
+    left:41.8vw;
+  }
+
+
+
+  /* Notes:
+  - First page introduction
+  - 2nd page: all intros
+  - 3rd page: Give the keyboard to to client
+  - designers will speak about the design
+  - 
+  
+  */
