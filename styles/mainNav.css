@@ -68,9 +68,9 @@
   /* The dots/bullets/indicators */
   .dot {
     cursor: pointer;
-    height: 3.7037vh;
-    width: 3.7037vh;
-    margin: 0 2px;
+    height: 2.776vw;
+    width: 2.776vw;
+    margin: 0.2vw;
     background-color: #bbb;
     border-radius: 50%;
     display: inline-block;
@@ -118,7 +118,17 @@
 
   #dotBar{
     position: absolute;
-    top:32vh;
-    left:39vw
-
+    bottom:58vh;
+    left:34vw
   }
+
+
+
+  /* Notes:
+  - First page introduction
+  - 2nd page: all intros
+  - 3rd page: Give the keyboard to to client
+  - designers will speak about the design
+  - 
+  
+  */

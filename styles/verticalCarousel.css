@@ -1,7 +1,8 @@
 /* 1920 x 1080 TV Size */
 
 .VerticalCardDiv{
-    width: 31.25vw;
+    width: 52.083vw;
+    /* width: 31.25vw; */
     height: 9.259vh;
     display: flex;
     align-items: center;
@@ -22,7 +23,7 @@
     max-height: 90vh;
     
     position: absolute;
-    top:10vh;
+    top:17vh;
     left: 25vw;
     
     /* display: flex;
@@ -56,6 +57,7 @@ scrollbar-width: none;  /* Firefox */
 
 
 .vCardAdj{
-    width: 41.6666vw
+    width: 52.083vw
+    /* width: 41.6666vw */
 }
 
