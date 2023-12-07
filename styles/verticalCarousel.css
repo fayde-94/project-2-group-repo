@@ -24,10 +24,11 @@
 }
 .verticalCarousel-container{
     max-height: 90vh;
+    padding-top: 7vh;
     
-    position: absolute;
+    /* position: absolute;
     top:17vh;
-    left: 25vw;
+    left: 25vw; */
     
     /* display: flex;
     align-items: center;

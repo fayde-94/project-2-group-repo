@@ -24,7 +24,7 @@
 
   /* Slideshow container */
   .navslideshow-container {
-    height: 20.092vh;
+    height: 25.092vh;
     position: relative;
     
     margin: auto;
@@ -116,11 +116,13 @@
     background: #FFF; 
   }
 
-  #dotBar{
+  /* #dotBar{
     position: absolute;
     bottom:62vh;
-    left:41.8vw;
-  }
+    left:41.873vw;
+    padding:0;
+    margin:0;
+  } */
 
 
 

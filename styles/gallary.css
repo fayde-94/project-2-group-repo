@@ -5,8 +5,9 @@
   width: 100vw;
   height: 50vh;  
   object-fit: contain;
-  position:absolute;
-  top:18vh;}
+  /* position:absolute;
+  top:18vh; */
+}
 
   /* Slideshow container */
 .gallarySlideShow {
